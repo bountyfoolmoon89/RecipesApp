@@ -14,10 +14,9 @@ public class RecipeServiceImpl implements RecipeService {
 
     private static Map<Long, Recipe> recipes = new TreeMap<>();
 
-    private static Map<Long, Ingredient> ingredients = new HashMap<>();
-
-    public static void addRecipe(Recipe recipe) {
-        recipes.put(numberOfRecipe, recipe);
+    public Recipe addRecipe(Recipe recipe) {
+        recipes.put(numberOfRecipe++, recipe);
+        return recipe;
     }
 
     @Override
@@ -27,14 +26,5 @@ public class RecipeServiceImpl implements RecipeService {
 
     public static long numberOfRecipe;
 
-    public static void addIngredient(Ingredient ingredient) {
-        ingredients.put(numberOfIngredient, ingredient);
-    }
 
-    @Override
-    public Ingredient getIngredient(Long numberOfIngredient) {
-        return ingredients.get(numberOfIngredient);
-    }
-
-    public static long numberOfIngredient;
 }

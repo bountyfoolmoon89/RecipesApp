@@ -7,5 +7,5 @@ public interface RecipeService {
 
     Recipe getRecipe(Long numberOfRecipe);
 
-    Ingredient getIngredient(Long numberOfIngredient);
+    Recipe addRecipe(Recipe recipe);
 }

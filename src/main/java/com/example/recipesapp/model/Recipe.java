@@ -9,32 +9,32 @@ import java.util.List;
 @Data
 public class Recipe {
 
-    private static String name;
+    private String name;
 
-    private static int cookingMinutes;
+    private int cookingMinutes;
 
-    private static List<Object> ingredients = new ArrayList<>();
+    private List<Object> ingredients = new ArrayList<>();
 
-    private static List<String> steps = new ArrayList<>();
+    private List<String> steps = new ArrayList<>();
 
     public Recipe(String name, int cookingMinutes) {
-        Recipe.name = name;
-        Recipe.cookingMinutes = cookingMinutes;
+        this.name = name;
+        this.cookingMinutes = cookingMinutes;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static int getCookingMinutes() {
+    public int getCookingMinutes() {
         return cookingMinutes;
     }
 
-    public static List<Object> getIngredients() {
+    public List<Object> getIngredients() {
         return ingredients;
     }
 
-    public static List<String> getSteps() {
+    public List<String> getSteps() {
         return steps;
     }
 
@@ -42,13 +42,13 @@ public class Recipe {
         if (name.isBlank() | name.isEmpty()){
             throw new RuntimeException("Введите информациию");
         } else {
-            Recipe.name = name;
+            this.name = name;
         }
     }
 
     public void setCookingMinutes(int cookingMinutes) {
         if (cookingMinutes > 0){
-            Recipe.cookingMinutes = cookingMinutes;
+            this.cookingMinutes = cookingMinutes;
         }
     }
 }
