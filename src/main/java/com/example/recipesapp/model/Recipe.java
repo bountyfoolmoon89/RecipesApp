@@ -1,6 +1,5 @@
 package com.example.recipesapp.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,13 +12,15 @@ public class Recipe {
 
     private int cookingMinutes;
 
-    private List<Object> ingredients = new ArrayList<>();
+    private List<Ingredient> ingredients = new ArrayList<>();
 
-    private List<String> steps = new ArrayList<>();
+    private List<Object> steps = new ArrayList<>();
 
-    public Recipe(String name, int cookingMinutes) {
+    public Recipe(String name, int cookingMinutes, List ingredients, List steps) {
         this.name = name;
         this.cookingMinutes = cookingMinutes;
+        this.ingredients = ingredients;
+        this.steps = steps;
     }
 
     public String getName() {
@@ -30,11 +31,11 @@ public class Recipe {
         return cookingMinutes;
     }
 
-    public List<Object> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public List<String> getSteps() {
+    public List<Object> getSteps() {
         return steps;
     }
 

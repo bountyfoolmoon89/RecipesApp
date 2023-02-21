@@ -4,6 +4,7 @@ import com.example.recipesapp.model.Recipe;
 import com.example.recipesapp.services.RecipeService;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
@@ -22,8 +23,8 @@ public class RecipeController {
     }
 
     @PostMapping("/addRecipes")
-    public void addRecipes(@RequestParam String name, @RequestParam int cookingMinutes) {
-        recipeService.addRecipe(new Recipe(name, cookingMinutes));
+    public void addRecipes(@RequestBody Recipe recipe) {
+        recipeService.addRecipe(recipe);
     }
 
 
