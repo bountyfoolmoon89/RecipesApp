@@ -19,6 +19,22 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
+    public Ingredient changeIngredient(Ingredient ingredient) {
+        ingredients.put(numberOfIngredient, ingredient);
+        return ingredient;
+    }
+
+    @Override
+    public void deleteIngredient(Ingredient ingredient) {
+        ingredients.remove(numberOfIngredient);
+    }
+
+    @Override
+    public String printAllIngredients(Map<Long, Ingredient> ingredients) {
+        return ingredients.toString();
+    }
+
+    @Override
     public Ingredient getIngredient(Long numberOfIngredient) {
         return ingredients.get(numberOfIngredient);
     }

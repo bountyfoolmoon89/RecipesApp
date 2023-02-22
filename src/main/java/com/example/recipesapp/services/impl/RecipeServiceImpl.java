@@ -1,11 +1,9 @@
 package com.example.recipesapp.services.impl;
 
-import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.model.Recipe;
 import com.example.recipesapp.services.RecipeService;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,11 +18,25 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
+    public Recipe changeRecipe(Recipe recipe) {
+        recipes.put(numberOfRecipe, recipe);
+        return recipe;
+    }
+
+    @Override
+    public void deleteRecipe(Recipe recipe) {
+        recipes.remove(numberOfRecipe);
+    }
+
+    @Override
+    public String printAllRecipes(Map<Long, Recipe> recipes) {
+        return recipes.toString();
+    }
+
+    @Override
     public Recipe getRecipe(Long numberOfRecipe) {
         return recipes.get(numberOfRecipe);
     }
 
     public static long numberOfRecipe;
-
-
 }

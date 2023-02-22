@@ -4,6 +4,8 @@ import com.example.recipesapp.model.Recipe;
 import com.example.recipesapp.services.RecipeService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/recipe")
@@ -27,5 +29,18 @@ public class RecipeController {
         recipeService.addRecipe(recipe);
     }
 
+    @PutMapping("/changeRecipe")
+    public void changeRecipe(@RequestBody Recipe recipe) {
+        recipeService.changeRecipe(recipe);
+    }
 
+    @DeleteMapping("/deleteRecipe")
+    public void deleteRecipe(@RequestBody Recipe recipe) {
+        recipeService.deleteRecipe(recipe);
+    }
+
+    @GetMapping("/printRecipes")
+    public void printRecipes(@RequestBody Map<Long, Recipe> recipes) {
+        recipeService.printAllRecipes(recipes);
+    }
 }
