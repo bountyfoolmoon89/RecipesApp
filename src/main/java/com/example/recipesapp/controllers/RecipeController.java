@@ -19,9 +19,8 @@ public class RecipeController {
     }
 
     @GetMapping("/getRecipe")
-    public Long getRecipes(@RequestParam Long numberOfRecipe) {
-        recipeService.getRecipe(numberOfRecipe);
-        return numberOfRecipe;
+    public Recipe getRecipes(@RequestParam Long numberOfRecipe) {
+        return recipeService.getRecipe(numberOfRecipe);
     }
 
     @PostMapping("/addRecipes")

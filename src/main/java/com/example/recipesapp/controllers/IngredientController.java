@@ -18,9 +18,8 @@ public class IngredientController {
     }
 
     @GetMapping("/getIngredients")
-    public Long getIngredients(@RequestParam Long numberOfIngredient) {
-        ingredientService.getIngredient(numberOfIngredient);
-        return numberOfIngredient;
+    public Ingredient getIngredients(@RequestParam Long numberOfIngredient) {
+        return ingredientService.getIngredient(numberOfIngredient);
     }
 
     @PostMapping("/addIngredients")
