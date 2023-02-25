@@ -6,13 +6,13 @@ import java.util.Map;
 
 public interface IngredientService {
 
-    Ingredient getIngredient(Long numberOfIngredient);
+    Ingredient getIngredient(Long id);
 
     Ingredient addIngredient(Ingredient ingredient);
 
-    Ingredient changeIngredient(Ingredient ingredient);
+    Ingredient changeIngredient(Long id, Ingredient ingredient);
 
-    void deleteIngredient(Ingredient ingredient);
+    void deleteIngredient(Long id);
 
     String printAllIngredients(Map<Long, Ingredient> ingredients);
 }

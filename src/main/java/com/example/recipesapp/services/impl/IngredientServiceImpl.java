@@ -14,19 +14,18 @@ public class IngredientServiceImpl implements IngredientService {
     private static Map<Long, Ingredient> ingredients = new HashMap<>();
 
     public Ingredient addIngredient(Ingredient ingredient) {
-        ingredients.put(numberOfIngredient++, ingredient);
+        ingredients.put(id++, ingredient);
         return ingredient;
     }
 
     @Override
-    public Ingredient changeIngredient(Ingredient ingredient) {
-        ingredients.put(numberOfIngredient, ingredient);
-        return ingredient;
+    public Ingredient changeIngredient(Long id, Ingredient ingredient) {
+        return ingredients.put(id, ingredient);
     }
 
     @Override
-    public void deleteIngredient(Ingredient ingredient) {
-        ingredients.remove(numberOfIngredient);
+    public void deleteIngredient(Long id) {
+        ingredients.remove(id);
     }
 
     @Override
@@ -39,5 +38,5 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredients.get(numberOfIngredient);
     }
 
-    public static long numberOfIngredient;
+    public static long id;
 }

@@ -11,9 +11,9 @@ public interface RecipeService {
 
     Recipe addRecipe(Recipe recipe);
 
-    Recipe changeRecipe(Recipe recipe);
+    Recipe changeRecipe(Long id, Recipe recipe);
 
-    void deleteRecipe(Recipe recipe);
+    void deleteRecipe(Long id);
 
     String printAllRecipes(Map<Long, Recipe> recipes);
 }

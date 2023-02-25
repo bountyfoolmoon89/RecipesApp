@@ -13,19 +13,19 @@ public class RecipeServiceImpl implements RecipeService {
     private static Map<Long, Recipe> recipes = new TreeMap<>();
 
     public Recipe addRecipe(Recipe recipe) {
-        recipes.put(numberOfRecipe++, recipe);
+        recipes.put(id++, recipe);
         return recipe;
     }
 
     @Override
-    public Recipe changeRecipe(Recipe recipe) {
-        recipes.put(numberOfRecipe, recipe);
+    public Recipe changeRecipe(Long id, Recipe recipe) {
+        recipes.put(id, recipe);
         return recipe;
     }
 
     @Override
-    public void deleteRecipe(Recipe recipe) {
-        recipes.remove(numberOfRecipe);
+    public void deleteRecipe(Long id) {
+        recipes.remove(id);
     }
 
     @Override
@@ -34,9 +34,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe getRecipe(Long numberOfRecipe) {
-        return recipes.get(numberOfRecipe);
+    public Recipe getRecipe(Long id) {
+        return recipes.get(id);
     }
 
-    public static long numberOfRecipe;
+    public static long id;
 }
