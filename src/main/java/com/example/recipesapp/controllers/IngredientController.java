@@ -17,27 +17,27 @@ public class IngredientController {
         this.ingredientService = ingredientService;
     }
 
-    @GetMapping("/oneIngredient/{id}")
+    @GetMapping("/{id}")
     public Ingredient getIngredients(@PathVariable Long id) {
         return ingredientService.getIngredient(id);
     }
 
-    @PostMapping("/addingIngredients")
+    @PostMapping
     public void addIngredients(@RequestBody Ingredient ingredient) {
         ingredientService.addIngredient(ingredient);
     }
 
-    @PutMapping("/changingIngredient/{id}")
+    @PutMapping("/{id}")
     public void changeIngredients(@PathVariable Long id, @RequestBody Ingredient ingredient) {
         ingredientService.changeIngredient(id, ingredient);
     }
 
-    @DeleteMapping("/deletingIngredient/{id}")
+    @DeleteMapping("/{id}")
     public void deleteIngredient(@PathVariable Long id) {
         ingredientService.deleteIngredient(id);
     }
 
-    @GetMapping("/allIngredients")
+    @GetMapping
     public void printIngredients(@RequestBody Map<Long, Ingredient> ingredients) {
         ingredientService.printAllIngredients(ingredients);
     }
