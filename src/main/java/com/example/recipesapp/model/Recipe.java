@@ -1,6 +1,5 @@
 package com.example.recipesapp.model;
 
-import ch.qos.logback.core.model.conditional.IfModel;
 import lombok.Data;
 
 import java.util.ArrayList;
