@@ -1,6 +1,5 @@
 package com.example.recipesapp.services;
 
-import com.example.recipesapp.model.Ingredient;
 import com.example.recipesapp.model.Recipe;
 
 import java.util.Map;

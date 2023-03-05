@@ -1,11 +1,13 @@
 package com.example.recipesapp.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class Recipe {
 
     private String name;
