@@ -1,20 +1,18 @@
 package com.example.recipesapp.services.impl;
 
-import com.example.recipesapp.services.FilesService;
+import com.example.recipesapp.services.IngredientsFilesService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@Service
-public class FilesServiceImpl implements FilesService {
+public class IngredientsFilesServiceImpl implements IngredientsFilesService {
 
-    @Value("${path.to.data.file}")
+    @Value("${path.to.data.file.ingredients}")
     private String dataFilePath;
 
-    @Value("${name.of.data.file}")
+    @Value("${name.of.data.file.ingredients}")
     private String dataFileName;
 
     @Override

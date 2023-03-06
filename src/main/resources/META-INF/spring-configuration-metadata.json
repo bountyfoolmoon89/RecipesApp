@@ -1,11 +1,19 @@
 {
   "properties": [
     {
-      "name": "path.to.data.file",
+      "name": "path.to.data.file.ingredients",
       "type": "java.lang.String"
     },
     {
-      "name": "name.of.data.file",
+      "name": "name.of.data.file.ingredients",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "path.to.data.file.recipe",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "name.of.data.file.recipe",
       "type": "java.lang.String"
     }
   ]

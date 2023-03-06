@@ -7,18 +7,19 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.TreeMap;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
 
-    final private FilesServiceImpl filesService;
+    final private RecipesFilesServiceImpl recipesFilesService;
 
     private static Map<Long, Recipe> recipes = new TreeMap<>();
 
-    public RecipeServiceImpl(FilesServiceImpl filesService) {
-        this.filesService = filesService;
+    public RecipeServiceImpl(RecipesFilesServiceImpl filesService) {
+        this.recipesFilesService = filesService;
     }
 
     public Recipe addRecipe(Recipe recipe) {
@@ -31,7 +32,7 @@ public class RecipeServiceImpl implements RecipeService {
     public Recipe changeRecipe(Long id, Recipe recipe) {
         recipes.put(id, recipe);
         saveToFile();
-        return null;
+        return recipe;
     }
 
     @Override
@@ -51,10 +52,15 @@ public class RecipeServiceImpl implements RecipeService {
 
     public static long id;
 
+    @PostConstruct
+    private void init(){
+        readFromFile();
+    }
+
     private void saveToFile() {
         try {
             String json = new ObjectMapper().writeValueAsString(recipes);
-            filesService.saveToFile(json);
+            recipesFilesService.saveToFile(json);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -62,7 +68,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     private void readFromFile() {
         try {
-            String json = filesService.readFromFile();
+            String json = recipesFilesService.readFromFile();
             recipes = new ObjectMapper().readValue(json, new TypeReference<Map<Long, Recipe>>() {
             });
         } catch (JsonProcessingException e) {

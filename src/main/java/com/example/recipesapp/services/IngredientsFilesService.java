@@ -1,6 +1,6 @@
 package com.example.recipesapp.services;
 
-public interface FilesService {
+public interface IngredientsFilesService {
 
     boolean saveToFile(String json);
 
