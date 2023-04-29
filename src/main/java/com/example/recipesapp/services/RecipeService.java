@@ -6,7 +6,7 @@ import java.util.Map;
 
 public interface RecipeService {
 
-    Recipe getRecipe(Long numberOfRecipe);
+    Recipe getRecipe(Long id);
 
     Recipe addRecipe(Recipe recipe);
 
