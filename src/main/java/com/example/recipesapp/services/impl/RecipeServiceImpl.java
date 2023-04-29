@@ -37,6 +37,9 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public void deleteRecipe(Long id) {
+        if (!recipes.containsKey(id)) {
+            throw new IllegalArgumentException("Ингредиент под номером " + id + " не найден");
+        }
         recipes.remove(id);
     }
 
@@ -47,6 +50,9 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe getRecipe(Long id) {
+        if (!recipes.containsKey(id)) {
+            throw new IllegalArgumentException("Ингредиент под номером " + id + " не найден");
+        }
         return recipes.get(id);
     }
 

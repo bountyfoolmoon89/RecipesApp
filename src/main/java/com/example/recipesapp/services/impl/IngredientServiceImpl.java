@@ -35,6 +35,9 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public void deleteIngredient(Long id) {
+        if (!ingredients.containsKey(id)) {
+            throw new IllegalArgumentException("Ингредиент под номером " + id + " не найден");
+        }
         ingredients.remove(id);
     }
 
@@ -45,6 +48,9 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient getIngredient(Long id) {
+        if (!ingredients.containsKey(id)) {
+            throw new IllegalArgumentException("Ингредиент под номером " + id + " не найден");
+        }
         return ingredients.get(id);
     }
 
