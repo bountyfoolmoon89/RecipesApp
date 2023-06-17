@@ -19,13 +19,11 @@ public class IngredientsFilesServiceImpl implements IngredientsFilesService {
     private String dataFileName;
 
     @Override
-    public boolean saveToFile(String json){
+    public void saveToFile(String json){
         try {
             cleanDataFile();
             Files.writeString(Path.of(dataFilePath, dataFileName), json);
-            return true;
         } catch (IOException e) {
-            return false;
         }
     }
 

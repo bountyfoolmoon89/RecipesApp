@@ -39,7 +39,7 @@ public class IngredientsFilesController {
         }
     }
 
-    @PostMapping(value = "/importRecipes", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/importIngredients", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> uploadDataFile(@RequestParam MultipartFile file){
         ingredientsFilesService.cleanDataFile();
         File dataFile = ingredientsFilesService.getDataFile();

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 @Service
@@ -20,17 +19,15 @@ public class IngredientServiceImpl implements IngredientService {
         this.ingredientsFilesService = filesService;
     }
 
-    public Ingredient addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient) {
         ingredients.put(id++, ingredient);
         saveToFile();
-        return ingredient;
     }
 
     @Override
-    public Ingredient changeIngredient(Long id, Ingredient ingredient) {
+    public void changeIngredient(Long id, Ingredient ingredient) {
         ingredients.put(id, ingredient);
         saveToFile();
-        return null;
     }
 
     @Override
@@ -56,12 +53,13 @@ public class IngredientServiceImpl implements IngredientService {
 
     public static long id;
 
-    @PostConstruct
-    private void init() {
+    @Override
+    public void init() {
         readFromFile();
     }
 
-    private void saveToFile() {
+    @Override
+    public void saveToFile() {
         try {
             String json = new ObjectMapper().writeValueAsString(ingredients);
             ingredientsFilesService.saveToFile(json);
@@ -70,7 +68,8 @@ public class IngredientServiceImpl implements IngredientService {
         }
     }
 
-    private void readFromFile() {
+    @Override
+    public void readFromFile() {
         try {
             String json = ingredientsFilesService.readFromFile();
             ingredients = new ObjectMapper().readValue(json, new TypeReference<Map<Long, Ingredient>>() {

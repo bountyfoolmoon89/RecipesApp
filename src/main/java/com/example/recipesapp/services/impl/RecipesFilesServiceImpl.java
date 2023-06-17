@@ -19,13 +19,12 @@ public class RecipesFilesServiceImpl implements RecipesFilesService {
     private String dataFileName;
 
     @Override
-    public boolean saveToFile(String json){
+    public void saveToFile(String json){
         try {
             cleanDataFile();
             Files.writeString(Path.of(dataFilePath, dataFileName), json);
-            return true;
         } catch (IOException e) {
-            return false;
+            throw new RuntimeException(e);
         }
     }
 

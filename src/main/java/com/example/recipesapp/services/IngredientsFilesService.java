@@ -5,13 +5,13 @@ import java.nio.file.Path;
 
 public interface IngredientsFilesService {
 
-    boolean saveToFile(String json);
+    void saveToFile(String json);
 
     File getDataFile();
 
-    public Path CreateTempIngredientsFile(String suffix);
+    Path CreateTempIngredientsFile(String suffix);
 
-    public String readFromFile();
+    String readFromFile();
 
-    public void cleanDataFile();
+    void cleanDataFile();
 }

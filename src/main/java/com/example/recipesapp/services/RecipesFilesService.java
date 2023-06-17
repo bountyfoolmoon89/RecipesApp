@@ -5,7 +5,7 @@ import java.nio.file.Path;
 
 public interface RecipesFilesService {
 
-    boolean saveToFile(String json);
+    void saveToFile(String json);
 
     File getDataFile();
 

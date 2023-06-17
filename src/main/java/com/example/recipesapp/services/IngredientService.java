@@ -8,11 +8,17 @@ public interface IngredientService {
 
     Ingredient getIngredient(Long id);
 
-    Ingredient addIngredient(Ingredient ingredient);
+    void addIngredient(Ingredient ingredient);
 
-    Ingredient changeIngredient(Long id, Ingredient ingredient);
+    void changeIngredient(Long id, Ingredient ingredient);
 
     void deleteIngredient(Long id);
 
     String printAllIngredients(Map<Long, Ingredient> ingredients);
+
+    void init();
+
+    void saveToFile();
+
+    void readFromFile();
 }
